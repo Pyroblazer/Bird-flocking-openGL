@@ -1,15 +1,17 @@
-﻿Bird Flocking Particles
+# Bird Flocking Particles
 
-Running Instructions
-g++ -o test example1.cpp InitShader.cpp -lglut -lGL -lGLU -lGLEW
-./test
+## Running Instructions
+	
+	g++ -o test example1.cpp InitShader.cpp -lglut -lGL -lGLU -lGLEW
+	./test
 
-Demonstration Video
+## Demonstration Video
 video_demonstrasi.mp4
 
-Modifikasi terhadap source code awal example1.cpp
-3 rule untuk flock of birds
-Rule 1: Birds try to fly towards the centre of mass of neighbouring birds.
+## Modifikasi terhadap source code awal example1.cpp
+Modifikasi yang dilakukan adalah penambahan 3 function untuk implementasi 3 rule untuk flock of birds <br>
+
+### Rule 1: Birds try to fly towards the centre of mass of neighbouring birds.
 
     vec4 rule1(particle particle)
     {
@@ -34,7 +36,7 @@ Rule 1: Birds try to fly towards the centre of mass of neighbouring birds.
 	    return pc;
     }
 
-Rule 2: Birds try to keep a small distance away from other objects (including other birds).
+### Rule 2: Birds try to keep a small distance away from other objects (including other birds).
 
     vec4 rule2(particle particle)
     {
@@ -56,9 +58,7 @@ Rule 2: Birds try to keep a small distance away from other objects (including ot
 	    return c;
     }
 
-
-
-Rule 3: Birds try to match velocity with near birds.
+### Rule 3: Birds try to match velocity with near birds.
 
     vec4 rule3(particle particle)
     {
@@ -84,6 +84,7 @@ Rule 3: Birds try to match velocity with near birds.
 	    return pv;
     }
 
+### Aplikasi 3 rule flock of birds untuk setiap partikel
 3 rule tersebut akan diaplikasikan untuk setiap partikel. Ditaruh di fungsi idle agar diaplikasikan terus menerus
 
     //Apply all 3 flock of bird rules
